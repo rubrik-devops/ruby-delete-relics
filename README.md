@@ -6,8 +6,7 @@
 * Rubrik Framework for removing snapshots from Relic VMs (Unmanaged) after --relic days.
 
 # How to use:
-Usage below will result in a formatted message being emailed to --to from --from with a Rubrik Daily Report.
-
+## Create .creds file within working directory.
 ```
 .creds - JSON formatted configuration (or resort to including credentials in command line execution)
 
@@ -18,7 +17,9 @@ Usage below will result in a formatted message being emailed to --to from --from
                 	"password": "[password]"
         	}
         }
-
+```
+## Help Text
+```
 Usage: rubrik.rb [options]
 
 Specific options:
