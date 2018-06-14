@@ -26,9 +26,22 @@ Specific options:
     -l, --login                      Test login to API
 
 Common options:
-    -r, --rubrik Address             Rubrik name in .creds
-        --relic INT                  Number of days since last snapshot
-    -h, --help                       Show thi
+    -r, --rubrik FRIENDLYNAME        Rubrik name in .creds
+        --relic DAYS                 Number of days to keep snapshots
+    -h, --help                       Show this message
+```
+## Example Return Data
+VM Snapshots of Relic are not outside of scope of '--relic DAYS'
+```
+devops-052 (VirtualMachine:::c31c8c8d-cf44-4a85-9198-31e61884f4fe-vm-821402 is Relic : Newest Snapshot 10 Days ago, not deleting
+```
+VM Snapshots of Relic are outside of scope of '--relic DAYS' and deletions are submitted
+```
+faust-win-temp (VirtualMachine:::fbcb1f51-9520-4227-a68c-6fe145982f48-vm-26437 is Relic : Newest Snapshot 260 Days ago, DELETING ALL SNAPS
+```
+VM Snapshots of Relic are outside of scope of '--relic DAYS' and deletions are pending
+```
+centos73 (0eeae8db-bc7c-47b8-9dc1-4680bec67e0f) (VirtualMachine:::fbcb1f51-9520-4227-a68c-6fe145982f48-vm-4545 is Relic : Snapshots have been deleted, pending processing
 ```
 ## Example Execution
 ```

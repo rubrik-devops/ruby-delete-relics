@@ -27,7 +27,7 @@ if r
 end
 
 if Options.relics
-  listData = restCall(r,"/api/v1/vmware/vm?limit=9999&primary_cluster_id=local",'','get','')["data"]
+  listData = restCall(r,"/api/v1/vmware/vm?limit=9999&is_relic=true&primary_cluster_id=local",'','get','')["data"]
   listData.each do |vm|
     if vm['isRelic']
       a = []
@@ -39,6 +39,10 @@ if Options.relics
       if a.min && a.min >= Options.relics.to_i
         puts "#{vm['name']} (#{vm['id']} is Relic : Newest Snapshot #{a.min} Days ago, DELETING ALL SNAPS"
         restCall(r,"/api/v1/vmware/vm/#{vm['id']}/snapshot",'','delete','')
+      elsif !a.min 
+        puts "#{vm['name']} (#{vm['id']} is Relic : Snapshots have been deleted, pending processing"
+      else
+        puts "#{vm['name']} (#{vm['id']} is Relic : Newest Snapshot #{a.min} Days ago, not deleting"
       end
     end
   end

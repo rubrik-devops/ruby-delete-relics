@@ -19,10 +19,10 @@ class ParseOptions
     end
     opts.separator ""
     opts.separator "Common options:"
-    opts.on('-r', '--rubrik Address', "Rubrik name in .creds") do |o|
+    opts.on('-r', '--rubrik FRIENDLYNAME', "Rubrik name in .creds") do |o|
       options[:r] = o;
     end
-    opts.on('--relic INT', "Number of days since last snapshot") do |o|
+    opts.on('--relic DAYS', "Number of days to keep snapshots") do |o|
       options[:relics] = o;
     end
     opts.on_tail("-h", "--help", "Show this message") do

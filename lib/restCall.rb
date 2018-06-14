@@ -27,11 +27,11 @@ def restCall(server,endpoint,l,type,header)
       req.headers['Content-Type'] = 'application/json'
       req.body  = l.to_json
     end
-    if response.status !~ /202|200/
+    if response.status !~ /^20\d$/
       begin
         return JSON.parse(response.body)
       rescue 
-        return "Endpoint #{response.url} returned #{response.status}"
+        return "Endpoint #{endpoint} returned #{response.status}"
       end
     end
   rescue Faraday::ConnectionFailed
