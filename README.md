@@ -29,9 +29,7 @@ Common options:
         --relic INT                  Number of days since last snapshot
     -h, --help                       Show thi
 ```
-
-```
-ruby rubrik.rb -r devops-rubrik --relic 30
+## Example Execution
 ```
 > ruby rubrik.rb -r devops-rubrik --relic 30
 Rubrik CDM Version 4.1.1-p2-2263
